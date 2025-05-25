@@ -17,4 +17,9 @@ def parse_arguments():
 
     summary_parser = subparsers.add_parser('summary', help='View a summary of all expenses')
 
-    return parser.parse_args()
+    args =  parser.parse_args()
+
+    if not bool(args.action):
+        parser.error('No arguments provided')
+
+    return args
