@@ -1,5 +1,4 @@
 import os
-import csv
 
 
 def validate_file(csv_file):

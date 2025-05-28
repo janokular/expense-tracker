@@ -1,18 +1,24 @@
-def add():
+import csv
+
+
+def add(description, amount, file):
+    print(description)
+    print(amount)
+
+
+def update(id, description, amount, file):
+    print(id)
+    print(description)
+    print(amount)
+
+
+def list(file):
     pass
 
 
-def update():
-    pass
+def delete(id, file):
+    print(id)
 
 
-def list():
-    pass
-
-
-def delete():
-    pass
-
-
-def summary():
-    pass
+def summary(month, file):
+    print(month)

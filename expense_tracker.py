@@ -15,15 +15,15 @@ def main():
 
     match args.action:
         case 'add':
-            add()
+            add(args.description, args.amount, CSV_FILE)
         case 'update':
-            update()
+            update(args.id, args.description, args.amount, CSV_FILE)
         case 'list':
-            list()
+            list(CSV_FILE)
         case 'delete':
-            delete()
+            delete(args.id, CSV_FILE)
         case 'summary':
-            summary()
+            summary(args.month, CSV_FILE)
         case _:
             print('Something went wrong')
 

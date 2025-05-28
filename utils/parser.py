@@ -7,15 +7,22 @@ def parse_arguments():
 
     subparsers = parser.add_subparsers(dest='action')
 
-    add_parser = subparsers.add_parser('add', help='Add an expense with a description and amount')
+    add_parser = subparsers.add_parser('add', help='add an expense with a description and amount')
+    add_parser.add_argument('--description', required=True)
+    add_parser.add_argument('--amount', required=True, type=float)
 
-    update_parser = subparsers.add_parser('update', help='Update an expense')
+    update_parser = subparsers.add_parser('update', help='update an expense')
+    update_parser.add_argument('--id', required=True, type=int)
+    update_parser.add_argument('--description')
+    update_parser.add_argument('--amount', type=float)
 
-    list_parser = subparsers.add_parser('list', help='View all expenses')
+    subparsers.add_parser('list', help='view all expenses')
 
-    delete_parser = subparsers.add_parser('delete', help='Delete an expense')
+    delete_parser = subparsers.add_parser('delete', help='delete an expense')
+    delete_parser.add_argument('--id', required=True, type=int)
 
-    summary_parser = subparsers.add_parser('summary', help='View a summary of all expenses')
+    summary_parser = subparsers.add_parser('summary', help='view a summary of all expenses')
+    summary_parser.add_argument('--month', type=int, help='view a summary of expenses for a specific month')
 
     args =  parser.parse_args()
 
