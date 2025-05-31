@@ -22,4 +22,5 @@ def delete(id, file):
 
 
 def summary(month, file):
-    print(f'Total expenses for {MonthsEnum(month).name}:')
+    if month:
+        print(f'Total expenses for {MonthsEnum(month).name}: ${0}')

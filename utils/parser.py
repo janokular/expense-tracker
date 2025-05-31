@@ -22,7 +22,7 @@ def parse_arguments():
     delete_parser.add_argument('--id', required=True, type=int)
 
     summary_parser = subparsers.add_parser('summary', help='view a summary of all expenses')
-    summary_parser.add_argument('--month', type=int, help='view a summary of expenses for a specific month')
+    summary_parser.add_argument('--month', type=int, choices=[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], help='view a summary of expenses for a specific month')
 
     args =  parser.parse_args()
 
