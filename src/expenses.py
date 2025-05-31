@@ -1,4 +1,5 @@
 import csv
+from enums.MonthsEnum import MonthsEnum
 
 
 def add(description, amount, file):
@@ -21,4 +22,4 @@ def delete(id, file):
 
 
 def summary(month, file):
-    print(month)
+    print(f'Total expenses for {MonthsEnum(month).name}:')
