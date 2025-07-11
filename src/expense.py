@@ -59,4 +59,3 @@ def summary(month, file):
         print(f'Total expenses for {MonthsEnum(month).name}: ${total}')
     else:        
         print(f'Total expenses: ${total}')
-
