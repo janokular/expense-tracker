@@ -2,8 +2,8 @@
 
 
 from utils.parser import parse_arguments
-from utils.file_validator import validate_file
-from src.expenses import *
+from utils.file_service import validate_file
+from src.expense import *
 
 
 def main():
