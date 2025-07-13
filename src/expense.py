@@ -8,13 +8,11 @@ def add_expense(description, amount, file):
     id = 1
     date = get_current_date()
 
-    with open(file, 'r', newline='') as csv_file:
-        expenses_reader = csv.reader(csv_file)
-        id += sum(1 for expense in expenses_reader)
+    with open(file, 'r', newline='') as csv_expenses:
+        id += sum(1 for expense in csv.reader(csv_expenses))
 
-    with open(file, 'a', newline='') as csv_file:
-        expenses_writer = csv.writer(csv_file)
-        expenses_writer.writerow([id,
+    with open(file, 'a', newline='') as csv_expenses:
+        csv.writer(csv_expenses).writerow([id,
                                  date,
                                  description,
                                  amount])
@@ -30,15 +28,24 @@ def update_expense(id, description, amount, file):
 
 
 def delete_expense(id, file):
+    '''Delete expense'''
+    with open(file, 'r', newline='') as csv_expenses:
+        expenses = [expense for expense in csv.reader(csv_expenses) if int(expense[0]) != id]
+
+    # Adjust IDs
+    for expense in expenses[id - 1:]:
+        expense[0] = int(expense[0]) - 1
+
+    with open(file, 'w', newline='') as csv_expenses:
+        csv.writer(csv_expenses).writerows(expenses)
 
     print(f'Expense {id} deleted successfully')
 
 
 def list_expenses(file):
     '''List all expenses'''
-    with open(file, 'r', newline='') as csv_file:
-        expenses_reader = csv.reader(csv_file)
-        for expense in expenses_reader:
+    with open(file, 'r', newline='') as csv_expenses:
+        for expense in csv.reader(csv_expenses):
             print(f'{expense[0]} {expense[1]} {expense[2]} ${expense[3]}')
 
 
@@ -47,9 +54,8 @@ def summary_of_expenses(month, file):
     total = 0.0
     month_name = MonthsEnum(month).name if month else None
 
-    with open(file, 'r', newline='') as csv_file:
-        expenses_reader = csv.reader(csv_file)
-        for expense in expenses_reader:
+    with open(file, 'r', newline='') as csv_expenses:
+        for expense in csv.reader(csv_expenses):
             date = expense[1]
             amount = float(expense[3])
             if not month or get_month_name(date) == month_name:
