@@ -30,7 +30,6 @@ def update_expense(id, description, amount, file):
 
 def delete_expense(id, file):
     '''Delete expense'''
-
     if is_id_in_range(id, file):
         with open(file, 'r', newline='') as csv_expenses:
             expenses = [expense for expense in csv.reader(csv_expenses) if int(expense[0]) != id]
