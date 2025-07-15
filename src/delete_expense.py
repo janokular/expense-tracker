@@ -6,7 +6,7 @@ def delete_expense(id, file):
     '''Delete expense'''
     if is_id_in_range(id, file):
         with open(file, 'r', newline='') as csv_expenses:
-            expenses = [expense for expense in csv.reader(csv_expenses) if int(expense[0]) != id]
+            expenses = [expense for expense in csv.reader(csv_expenses) if id != int(expense[0])]
 
         # Adjust IDs
         for expense in expenses[id - 1:]:
