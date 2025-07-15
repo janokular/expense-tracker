@@ -9,7 +9,7 @@ def delete_expense(id, file):
     if is_id_in_range(id, file):
         with open(file, 'r', newline='') as csv_expenses:
             for expense in csv.reader(csv_expenses):
-                if int(expense[0]) != id:
+                if id != int(expense[0]):
                     expenses.append(expense)
 
         # Adjust IDs
