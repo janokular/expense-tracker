@@ -4,9 +4,13 @@ from utils.id_checker import is_id_in_range
 
 def delete_expense(id, file):
     '''Delete expense'''
+    expenses = []
+    
     if is_id_in_range(id, file):
         with open(file, 'r', newline='') as csv_expenses:
-            expenses = [expense for expense in csv.reader(csv_expenses) if id != int(expense[0])]
+            for expense in csv.reader(csv_expenses):
+                if int(expense[0]) != id:
+                    expenses.append(expense)
 
         # Adjust IDs
         for expense in expenses[id - 1:]:
