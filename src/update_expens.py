@@ -11,12 +11,12 @@ def update_expense(id, description, amount, file):
             for expense in csv.reader(csv_expenses):
                 expenses.append(expense)
 
-            for expense in expenses:
-                if id == int(expense[0]):
-                    if description:
-                        expense[2] = description
-                    if amount:
-                        expense[3] = amount
+        for expense in expenses:
+            if id == int(expense[0]):
+                if description:
+                    expense[2] = description
+                if amount:
+                    expense[3] = amount
 
         with open(file, 'w', newline='') as csv_expenses:
             csv.writer(csv_expenses).writerows(expenses)
