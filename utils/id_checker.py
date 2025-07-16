@@ -8,5 +8,5 @@ def is_id_in_range(id, file):
             if id == int(expense[0]):
                 return True
         
-        print(f'ID: {id} is out of range')
-        return False
+        print(f'Error: (ID: {id}) is out of range')
+        exit()

@@ -19,4 +19,4 @@ def delete_expense(id, file):
         with open(file, 'w', newline='') as csv_expenses:
             csv.writer(csv_expenses).writerows(expenses)
 
-        print(f'Expense {id} deleted successfully')
+        print(f'Expense (ID: {id}) deleted successfully')

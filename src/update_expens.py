@@ -7,6 +7,10 @@ def update_expense(id, description, amount, file):
     expenses = []
 
     if is_id_in_range(id, file):
+        if not (description or amount):
+            print(f'Error: Cannot update expense (ID: {id}) with provided values')
+            exit()
+
         with open(file, 'r', newline='') as csv_expenses:
             for expense in csv.reader(csv_expenses):
                 expenses.append(expense)
@@ -21,4 +25,4 @@ def update_expense(id, description, amount, file):
         with open(file, 'w', newline='') as csv_expenses:
             csv.writer(csv_expenses).writerows(expenses)
 
-        print(f'Expense {id} updated successfully')
+        print(f'Expense (ID: {id}) updated successfully')
