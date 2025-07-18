@@ -1,6 +1,5 @@
 import csv
-from utils.args_validator import is_id_in_range
-from utils.args_validator import is_amount_valid, is_description_not_empty
+from utils.args_validator import is_id_in_range, is_amount_valid, is_description_not_empty
 
 
 def update_expense(id: int, description: str, amount: float, file):
