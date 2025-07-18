@@ -7,7 +7,7 @@ from src.add_expense import add_expense
 from src.delete_expense import delete_expense
 from src.list_expenses import list_expenses
 from src.summary_of_expenses import summary_of_expenses
-from src.update_expens import update_expense
+from update_expense import update_expense
 
 
 def main():
