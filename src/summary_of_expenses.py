@@ -1,6 +1,6 @@
 import csv
-from utils.date_service import get_month_name
 from enums.MonthsEnum import MonthsEnum
+from utils.date_service import get_month_name
 
 
 def summary_of_expenses(month: int, file):
