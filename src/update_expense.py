@@ -1,16 +1,15 @@
 import csv
-from utils.id_checker import is_id_in_range
+from utils.args_validator import is_id_in_range
+from utils.args_validator import is_amount_valid, is_description_not_empty
 
 
-def update_expense(id, description, amount, file):
+def update_expense(id: int, description: str, amount: float, file):
     '''Update expense's description or amount'''
     expenses = []
 
-    if is_id_in_range(id, file):
-        if not (description or amount):
-            print(f'Error: Cannot update expense (ID: {id}) with provided values')
-            exit()
+    print(description)
 
+    if is_id_in_range(id, file) and (is_description_not_empty(description) or is_amount_valid(amount)):
         with open(file, 'r', newline='') as csv_expenses:
             for expense in csv.reader(csv_expenses):
                 expenses.append(expense)

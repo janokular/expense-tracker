@@ -3,7 +3,7 @@ from utils.date_service import get_month_name
 from enums.MonthsEnum import MonthsEnum
 
 
-def summary_of_expenses(month, file):
+def summary_of_expenses(month: int, file):
     '''Summary of total or specific month expenses'''
     total = 0.0
     month_name = MonthsEnum(month).name if month else None

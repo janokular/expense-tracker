@@ -6,6 +6,6 @@ def get_current_date():
     return datetime.date.today()
 
 
-def get_month_name(date_string):
+def get_month_name(date: str):
     '''Return full month name from yyyy-mm-dd date format'''
-    return datetime.datetime.strptime(date_string, "%Y-%m-%d").strftime('%B')
+    return datetime.datetime.strptime(date, "%Y-%m-%d").strftime('%B')

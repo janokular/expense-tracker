@@ -1,8 +1,8 @@
 import csv
-from utils.id_checker import is_id_in_range
+from utils.args_validator import is_id_in_range
 
 
-def delete_expense(id, file):
+def delete_expense(id: int, file):
     '''Delete expense'''
     expenses = []
     
