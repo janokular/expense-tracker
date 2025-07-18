@@ -6,8 +6,6 @@ def update_expense(id: int, description: str, amount: float, file):
     '''Update expense's description or amount'''
     expenses = []
 
-    print(description)
-
     if is_id_in_range(id, file) and (is_description_not_empty(description) or is_amount_valid(amount)):
         with open(file, 'r', newline='') as csv_expenses:
             for expense in csv.reader(csv_expenses):
