@@ -8,14 +8,14 @@ def is_id_in_range(id: int, file):
             if id == int(expense[0]):
                 return True
         
-        print(f'Error: (ID: {id}) is out of range')
+        print(f'error: (ID: {id}) is out of range')
         return False
 
 
 def is_description_not_empty(description: str):
     '''Check if description is not empty'''
     if description == '':
-        print('Error: Description cannot be empty')
+        print('error: Description cannot be empty')
         return False
     else:
         return True
@@ -26,7 +26,7 @@ def is_amount_valid(amount: float):
     number_of_decimal_points = len(str(amount).split('.')[1])
 
     if amount < 0 or number_of_decimal_points > 2:
-        print('Error: Amount must be positive and can only have two decimal points')
+        print('error: Amount must be positive and can only have two decimal points')
         return False
     else:
         return True
