@@ -26,7 +26,7 @@ def parse_arguments():
 
     args =  parser.parse_args()
 
-    if not bool(args.action):
+    if not args.action:
         parser.error('No arguments provided')
 
     return args
