@@ -1,5 +1,5 @@
 def table_print(expenses: list):
-    '''Format expenses and print them inside a table'''
+    '''Print expenses inside a table'''
     expenses.insert(0, ['ID', 'Date', 'Description', 'Amount'])
 
     id_col_len = 0
