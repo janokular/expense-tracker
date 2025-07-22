@@ -29,7 +29,7 @@ def main():
         case 'update':
             update_expense(args.id, args.description, args.amount, CSV_FILE)
         case _:
-            print('Error: Something went wrong')
+            print('error: Something went wrong')
 
 if __name__ == '__main__':
     main()
