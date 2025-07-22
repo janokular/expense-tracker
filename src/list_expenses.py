@@ -1,6 +1,7 @@
 import csv
 from utils.table_print import table_print
 
+
 def list_expenses(file):
     '''List all expenses'''
     expenses = []
