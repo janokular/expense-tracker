@@ -15,8 +15,8 @@ def add_expense(description: str, amount: float, file):
 
         with open(file, 'a', newline='') as csv_expenses:
             csv.writer(csv_expenses).writerow([id,
-                                    date,
-                                    description,
-                                    amount])
+                                               date,
+                                               description,
+                                               amount])
 
         print(f'Expense added successfully (ID: {id})')
