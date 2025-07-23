@@ -1,4 +1,4 @@
-def table_print(expenses: list):
+def print_table(expenses: list):
     '''Print expenses inside a table'''
     expenses.insert(0, ['ID', 'Date', 'Description', 'Amount'])
 

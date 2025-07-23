@@ -1,5 +1,5 @@
 import csv
-from utils.table_print import table_print
+from utils.table_print import print_table
 
 
 def list_expenses(file):
@@ -14,4 +14,4 @@ def list_expenses(file):
                             f'${expense[3]}'])
     
     if expenses:
-        table_print(expenses)
+        print_table(expenses)
