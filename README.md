@@ -1,3 +1,4 @@
+## Expense tracker
 ```
 # Add new expense
 expense_tracker.py add --description "Lunch" --amount 20
