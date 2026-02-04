@@ -8,7 +8,7 @@ python3 -m venv .venv
 # Installation
 pip3 install .
 
-# Exit the virtual enviroment
+# Exit the virtual environment
 deactivate
 
 # Uninstallation
