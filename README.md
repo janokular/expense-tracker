@@ -1,7 +1,7 @@
 ## Expense tracker
 ```
 # Initial setup
-# Create and activate virtual environment
+# Create and activate the virtual environment
 python3 -m venv .venv
 . ./.venv/bin/activate
 
