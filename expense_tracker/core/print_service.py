@@ -1,5 +1,5 @@
-def column_print(expenses: list):
-    '''Columnate expenses lists'''
+def column(expenses: list):
+    '''Columnate expenses list'''
     HEADER = [
         'ID',
         'DATE',
@@ -13,23 +13,20 @@ def column_print(expenses: list):
     desc_spacing = 0
     amount_spacing = 0
 
-    for e in expenses:
-        if id_spacing < len(e[0]):
-            id_spacing = len(e[0])
-        
-        if date_spacing < len(e[1]):
-            date_spacing = len(e[1])
+    for expense in expenses:
+        if id_spacing < len(expense[0]):
+            id_spacing = len(expense[0])
+        if date_spacing < len(expense[1]):
+            date_spacing = len(expense[1])
+        if desc_spacing < len(expense[2]):
+            desc_spacing = len(expense[2])
+        if amount_spacing < len(expense[3]):
+            amount_spacing = len(expense[3])
 
-        if desc_spacing < len(e[2]):
-            desc_spacing = len(e[2])
-        
-        if amount_spacing < len(e[3]):
-            amount_spacing = len(e[3])
-
-    for e in expenses:
+    for expense in expenses:
         print(
-            f'{e[0]} {' ' * (id_spacing - len(e[0]))}',
-            f'{e[1]} {' ' * (date_spacing - len(e[1]))}',
-            f'{e[2]} {' ' * (desc_spacing - len(e[2]))}',
-            f'{e[3]} {' ' * (amount_spacing - len(e[3]))}'
+            f'{expense[0]} {' ' * (id_spacing - len(expense[0]))}',
+            f'{expense[1]} {' ' * (date_spacing - len(expense[1]))}',
+            f'{expense[2]} {' ' * (desc_spacing - len(expense[2]))}',
+            f'{expense[3]} {' ' * (amount_spacing - len(expense[3]))}'
         )

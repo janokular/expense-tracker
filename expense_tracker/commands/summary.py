@@ -1,26 +1,25 @@
 import csv
 
-from ..core.file_service import get_file
+from ..core.file_service import get_filepath
 from ..core.date_service import get_month_name
 from ..enums.MonthsEnum import MonthsEnum
 
 
 def summary(month: int):
     '''Summary of total or specific month expenses'''
-    FILE = get_file()
-    
+    filepath = get_filepath()
     total = 0.0
     month_name = MonthsEnum(month).name if month else None
 
-    with open(FILE, 'r', newline='') as csv_expenses:
-        for expense in csv.reader(csv_expenses):
+    with open(filepath, 'r', newline='') as file:
+        for expense in csv.reader(file):
             date = expense[1]
             amount = float(expense[3])
             if not month or get_month_name(date) == month_name:
                 total += amount
 
-    print(f'Total expenses for {month_name}: ${total}' if month else 
-          f'Total expenses: ${total}')
+    print(f'Total expenses for {month_name}: {total}' if month else 
+          f'Total expenses: {total}')
 
 
 def run(args):

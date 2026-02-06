@@ -1,28 +1,23 @@
 import csv
 
-from ..core.file_service import get_file
+from ..core.file_service import get_filepath
 from ..core.date_service import get_today_date
-from ..core.args_service import amount_validator
-from ..core.args_service import description_validator
+from ..core.args_service import add_args_validator
 
 
 def add(description: str, amount: float):
     '''Add new expense'''
-    FILE = get_file()
-
+    filepath = get_filepath()
     new_id = 1
     date = get_today_date()
 
-    if (
-        description_validator(description)
-        and amount_validator(amount)
-    ):
-        with open(FILE, 'r', newline='') as csv_expenses:
-            for expense in csv.reader(csv_expenses):
+    if add_args_validator(description, amount):
+        with open(filepath, 'r', newline='') as file:
+            for expense in csv.reader(file):
                 new_id += 1
 
-        with open(FILE, 'a', newline='') as csv_expenses:
-            csv.writer(csv_expenses).writerow(
+        with open(filepath, 'a', newline='') as file:
+            csv.writer(file).writerow(
                 [
                     new_id,
                     date,

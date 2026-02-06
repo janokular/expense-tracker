@@ -1,22 +1,21 @@
 import csv
 
-from ..core.file_service import get_file
+from ..core.file_service import get_filepath
 from ..core.args_service import id_validator
-from ..core.args_service import update_validator
+from ..core.args_service import update_args_validator
 
 
 def update(id: int, description: str, amount: float):
     '''Update expense's description or amount'''
-    FILE = get_file()
-
+    filepath = get_filepath()
     expenses = []
 
     if (
-        id_validator(id, FILE)
-        and update_validator(description, amount)
+        id_validator(id, filepath)
+        and update_args_validator(description, amount)
     ):
-        with open(FILE, 'r', newline='') as csv_expenses:
-            for expense in csv.reader(csv_expenses):
+        with open(filepath, 'r', newline='') as file:
+            for expense in csv.reader(file):
                 expenses.append(expense)
 
         for expense in expenses:
@@ -26,8 +25,8 @@ def update(id: int, description: str, amount: float):
                 if amount:
                     expense[3] = amount
 
-        with open(FILE, 'w', newline='') as csv_expenses:
-            csv.writer(csv_expenses).writerows(expenses)
+        with open(filepath, 'w', newline='') as file:
+            csv.writer(file).writerows(expenses)
 
         print(f'Expense (ID: {id}) updated successfully')
 

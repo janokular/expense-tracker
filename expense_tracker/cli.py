@@ -1,4 +1,4 @@
-import argparse
+from argparse import ArgumentParser
 
 from .commands import add
 from .commands import delete
@@ -7,8 +7,8 @@ from .commands import summary
 from .commands import update
 
 
-def build_parser():
-    parser = argparse.ArgumentParser(
+def build_parser() -> ArgumentParser:
+    parser = ArgumentParser(
         prog='expense_tracker',
         description='Expense Tracker - track and manage your expenses'
     )

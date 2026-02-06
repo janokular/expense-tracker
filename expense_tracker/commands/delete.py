@@ -1,27 +1,25 @@
 import csv
 
-from ..core.file_service import get_file
+from ..core.file_service import get_filepath
 from ..core.args_service import id_validator
 
 
 def delete(id: int):
     '''Delete expense'''
-    FILE = get_file()
-
+    filepath = get_filepath()
     expenses = []
     
-    if id_validator(id, FILE):
-        with open(FILE, 'r', newline='') as csv_expenses:
-            for expense in csv.reader(csv_expenses):
+    if id_validator(id, filepath):
+        with open(filepath, 'r', newline='') as file:
+            for expense in csv.reader(file):
                 if id != int(expense[0]):
                     expenses.append(expense)
 
-        # Adjust IDs
         for expense in expenses[id - 1:]:
             expense[0] = int(expense[0]) - 1
 
-        with open(FILE, 'w', newline='') as csv_expenses:
-            csv.writer(csv_expenses).writerows(expenses)
+        with open(filepath, 'w', newline='') as file:
+            csv.writer(file).writerows(expenses)
 
         print(f'Expense (ID: {id}) deleted successfully')
 

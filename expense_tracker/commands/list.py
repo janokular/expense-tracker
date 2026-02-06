@@ -1,28 +1,29 @@
 import csv
 
-from ..core.file_service import get_file
-from ..core.print_service import column_print
+from ..core.file_service import get_filepath
+from ..core.print_service import column
 
 
 def list():
     '''List all expenses'''
-    FILE = get_file()
-    
+    filepath = get_filepath()
     expenses = []
     
-    with open(FILE, 'r', newline='') as csv_expenses:
-        for expense in csv.reader(csv_expenses):
+    with open(filepath, 'r', newline='') as file:
+        for expense in csv.reader(file):
             expenses.append(
                 [
                     expense[0],
                     expense[1],
                     expense[2],
-                    f'${expense[3]}'
+                    expense[3]
                 ]
             )
 
     if expenses:
-        column_print(expenses)
+        column(expenses)
+    else:
+        print('No expenses for listing')
 
 
 def register(subparsers):
