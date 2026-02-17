@@ -1,4 +1,4 @@
-## Expense tracker
+## Expense Tracker
 ```
 # Initial setup
 # Create and activate the virtual environment
