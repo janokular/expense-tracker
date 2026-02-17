@@ -15,9 +15,6 @@ def delete(id: int):
                 if id != int(expense[0]):
                     expenses.append(expense)
 
-        for expense in expenses[id - 1:]:
-            expense[0] = int(expense[0]) - 1
-
         with open(filepath, 'w', newline='') as file:
             csv.writer(file).writerows(expenses)
 
