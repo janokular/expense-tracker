@@ -2,7 +2,7 @@ import csv
 
 from ..core.file_service import get_filepath
 from ..core.date_service import get_today_date
-from ..core.args_service import add_args_validator
+from ..core.args_validator import add_args_validator
 
 
 def add(description: str, amount: float):

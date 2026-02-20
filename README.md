@@ -1,6 +1,6 @@
 ## Expense Tracker
+### Initial setup
 ```
-# Initial setup
 # Create and activate the virtual environment
 python3 -m venv .venv
 . ./.venv/bin/activate
@@ -14,6 +14,8 @@ deactivate
 # Uninstallation
 pip3 uninstall expense_tracker
 ```
+
+### Running the application
 ```
 # Add new expense
 expense_tracker add --description "Lunch" --amount 20

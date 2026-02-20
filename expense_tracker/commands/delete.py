@@ -1,7 +1,7 @@
 import csv
 
 from ..core.file_service import get_filepath
-from ..core.args_service import id_validator
+from ..core.args_validator import id_validator
 
 
 def delete(id: int):
